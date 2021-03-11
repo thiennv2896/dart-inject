@@ -117,7 +117,7 @@ class _LibraryVisitor extends RecursiveElementVisitor<Null> {
 List<SymbolPath> _extractModules(ClassElement clazz) {
   ElementAnnotation annotation = getInjectorAnnotation(clazz);
   List<DartObject> modules =
-      annotation.constantValue.getField('modules').toListValue();
+      annotation.computeConstantValue().getField('modules').toListValue();
   if (modules == null) {
     return const <SymbolPath>[];
   }
